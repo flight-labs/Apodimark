@@ -68,13 +68,8 @@ struct TextInlineNodeIterator <View: BidirectionalCollection, Codec: MarkdownPar
             }
         }()
         
-        if i == text.endIndex-1 {
-            let adjustedEnd = linebreak == .backslashHardbreak ? view.index(after: end) : end
-            return TextInlineNode(kind: .text, start: indices.lowerBound, end: adjustedEnd)
-        } else {
-            queuedTextInline = TextInlineNode(kind: linebreak == .softbreak ? .softbreak : .hardbreak, start: end, end: indices.upperBound)
-            return TextInlineNode(kind: .text, start: indices.lowerBound, end: end)
-        }
+      queuedTextInline = TextInlineNode(kind: linebreak == .softbreak ? .softbreak : .hardbreak, start: end, end: indices.upperBound)
+      return TextInlineNode(kind: .text, start: indices.lowerBound, end: end)
     }
 }
 
