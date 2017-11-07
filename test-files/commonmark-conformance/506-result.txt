@@ -1,1 +1,1 @@
-Document { Paragraph([foo][softbreak][ref: bar(/url "title")]), }
+Document { Paragraph([foo][ref: bar(/url "title")]), }
