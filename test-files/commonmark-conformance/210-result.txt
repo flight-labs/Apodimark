@@ -1,1 +1,1 @@
-Document { Paragraph(A paragraph[softbreak]with two lines.), Code[indented code], Quote { Paragraph(A block quote.), }, }
+Document { Paragraph(A paragraphwith two lines.), Code[indented code], Quote { Paragraph(A block quote.), }, }
