@@ -1,1 +1,1 @@
-Document { Paragraph(code( )[softbreak]aaa), }
+Document { Paragraph(code( )aaa), }
