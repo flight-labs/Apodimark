@@ -1,1 +1,1 @@
-Document { Paragraph(Foo[softbreak]***), }
+Document { Paragraph(Foo***), }
