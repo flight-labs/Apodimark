@@ -73,7 +73,11 @@ private let tests = [
 private func stringForTest(number: Int, result: Bool = false) -> String {
     let dirUrl = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
     let fileUrl = dirUrl.appendingPathComponent("test-files/commonmark-conformance/\(number)" + (result ? "-result" : "") + ".txt")
-    return try! String(contentsOf: fileUrl)
+    var string = try! String(contentsOf: fileUrl)
+    if result {
+      string = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
+    return string
 }
 
 class CommonMarkConformanceTests : QuickSpec {
