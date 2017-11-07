@@ -1,1 +1,1 @@
-Document { Paragraph(aaa[softbreak]bbb), Paragraph(ccc[softbreak]ddd), }
+Document { Paragraph(aaabbb), Paragraph(cccddd), }
