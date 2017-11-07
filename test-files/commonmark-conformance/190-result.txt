@@ -1,1 +1,1 @@
-Document { Quote { Paragraph(bar[softbreak]baz[softbreak]foo), }, }
+Document { Quote { Paragraph(barbazfoo), }, }
