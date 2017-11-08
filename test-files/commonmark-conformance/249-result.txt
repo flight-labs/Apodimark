@@ -1,1 +1,1 @@
-Document { Quote { List[Number(1)] { Item { Quote { Paragraph(Blockquote[softbreak]continued here.), }, }, }, }, }
+Document { Quote { List[Number(1)] { Item { Quote { Paragraph(Blockquotecontinued here.), }, }, }, }, }
