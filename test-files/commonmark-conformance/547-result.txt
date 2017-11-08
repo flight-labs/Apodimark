@@ -1,1 +1,1 @@
-Document { Paragraph([uref: foo(/url "title")][softbreak][]), }
+Document { Paragraph([uref: foo(/url "title")] []), }
