@@ -1,1 +1,1 @@
-Document { Paragraph(foo[hardbreak]bar), }
+Document { Paragraph(foo  bar), }
