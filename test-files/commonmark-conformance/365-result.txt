@@ -1,1 +1,1 @@
-Document { Paragraph(e2(Gomphocarpus (e1(Gomphocarpus physocarpus), syn.[softbreak]e1(Asclepias physocarpa)))), }
+Document { Paragraph(e1(e1(Gomphocarpus (e1(Gomphocarpus physocarpus), syn.)Asclepias physocarpa))**), }
