@@ -4,7 +4,7 @@
 //
 
 enum EmphasisKind {
-    case asterisk, underscore
+    case asterisk, underscore, tilde
 }
 
 enum DelimiterKind {
@@ -56,6 +56,8 @@ struct DelimiterState: OptionSet {
         switch token {
 
         case Codec.asterisk:
+            fallthrough
+        case Codec.tilde:
             if isRightFlanking { state.formUnion(.closing) }
             if isLeftFlanking  { state.formUnion(.opening) }
 
