@@ -91,7 +91,7 @@ class CommonMarkConformanceTests : QuickSpec {
                 let doc = parsedMarkdown(source: source, definitionStore: DefaultReferenceDefinitionStore(), codec: UTF16MarkdownCodec.self)
                 let desc = MarkdownBlock.output(nodes: doc, source: source, codec: UTF16MarkdownCodec.self)
                 let result = stringForTest(number: no, result: true)
-                it("Verifies test \(no)") { expect(result).to(equal(desc)) }
+                it("Verifies test \(no)") { expect(desc).to(equal(result)) }
             }
         };
 
@@ -102,7 +102,7 @@ class CommonMarkConformanceTests : QuickSpec {
                     let doc = parsedMarkdown(source: source, definitionStore: DefaultReferenceDefinitionStore(), codec: UnicodeScalarMarkdownCodec.self)
                     let desc = MarkdownBlock.output(nodes: doc, source: source, codec: UnicodeScalarMarkdownCodec.self)
                     let result = stringForTest(number: no, result: true)
-                    expect(result).to(equal(desc))
+                    expect(desc).to(equal(result))
                 }
             }
         }
@@ -115,7 +115,7 @@ class CommonMarkConformanceTests : QuickSpec {
                     let desc = MarkdownBlock.output(nodes: doc, source: source, codec: CharacterMarkdownCodec.self)
                     let result = stringForTest(number: no, result: true)
 
-                    expect(result).to(equal(desc))
+                    expect(desc).to(equal(result))
                 }
             }
         }
@@ -128,7 +128,7 @@ class CommonMarkConformanceTests : QuickSpec {
                     let desc = MarkdownBlock.output(nodes: doc, source: source, codec: UTF32MarkdownCodec.self)
                     let result = stringForTest(number: no, result: true)
 
-                    expect(result).to(equal(desc))
+                    expect(desc).to(equal(result))
                 }
             }
         }
@@ -142,7 +142,7 @@ class CommonMarkConformanceTests : QuickSpec {
                     let desc = MarkdownBlock.output(nodes: doc, source: source, codec: UTF8MarkdownCodec.self)
                     let result = stringForTest(number: no, result: true)
 
-                    expect(result).to(equal(desc))
+                    expect(desc).to(equal(result))
                 }
             }
 
