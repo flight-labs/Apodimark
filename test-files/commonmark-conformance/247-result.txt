@@ -1,1 +1,1 @@
-Document { List[Number(1)] { Item { Paragraph(A paragraph[softbreak]with two lines.), }, }, }
+Document { List[Number(1)] { Item { Paragraph(A paragraphwith two lines.), }, }, }
