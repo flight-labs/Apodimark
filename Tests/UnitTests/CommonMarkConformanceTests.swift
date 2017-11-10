@@ -80,6 +80,12 @@ private func stringForTest(number: Int, result: Bool = false) -> String {
     return string
 }
 
+private func saveTestResult(number: Int, contents: String) {
+    let dirUrl = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+    let fileUrl = dirUrl.appendingPathComponent("test-files/commonmark-conformance/\(number)" + "-result" + ".txt")
+    try! contents.write(to: fileUrl, atomically: true, encoding: .utf8)
+}
+
 class CommonMarkConformanceTests : QuickSpec {
     override func spec() {
         // NB: We create individual tests for each fixture here as the "main"
@@ -87,11 +93,13 @@ class CommonMarkConformanceTests : QuickSpec {
         // the Xcode test list is a bit more manageable
         describe("testSpecStringUTF16View") {
             for no in tests {
-                let source = stringForTest(number: no).utf16
-                let doc = parsedMarkdown(source: source, definitionStore: DefaultReferenceDefinitionStore(), codec: UTF16MarkdownCodec.self)
-                let desc = MarkdownBlock.output(nodes: doc, source: source, codec: UTF16MarkdownCodec.self)
+                let source = stringForTest(number: no)
+                let doc = parsedMarkdown(source: source.utf16, definitionStore: DefaultReferenceDefinitionStore(), codec: UTF16MarkdownCodec.self)
+                let desc = MarkdownBlock.output(nodes: doc, source: source.utf16, codec: UTF16MarkdownCodec.self)
                 let result = stringForTest(number: no, result: true)
-                it("Verifies test \(no)") { expect(desc).to(equal(result)) }
+
+                //saveTestResult(number: no, contents: desc)
+                it("Verifies test \(no)") { expect(desc).to(equal(result), description: "Flightdown Content:\n\(source)") }
             }
         };
 
