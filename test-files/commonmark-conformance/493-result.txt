@@ -1,1 +1,1 @@
-Document { Paragraph([ref: link e1(foo )e1(bar)e1( code(#))(/uri)]), }
+Document { Paragraph([ref: link b1(foo )b1(bar)b1( code(#))(/uri)]), }

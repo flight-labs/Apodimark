@@ -1,1 +1,1 @@
-Document { Paragraph(e1(foo )e1(bar)e1( baz)), }
+Document { Paragraph(b1(foo )b1(bar)b1( baz)), }

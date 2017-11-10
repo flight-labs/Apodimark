@@ -1,1 +1,1 @@
-Document { Paragraph([uref: foo e1(bar)(train.jpg "train & tracks")]), }
+Document { Paragraph([uref: foo b1(bar)(train.jpg "train & tracks")]), }

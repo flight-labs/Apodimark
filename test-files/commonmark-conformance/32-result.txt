@@ -1,1 +1,1 @@
-Document { Header(1, foo e1(bar) *baz*), }
+Document { Header(1, foo b1(bar) *baz*), }
