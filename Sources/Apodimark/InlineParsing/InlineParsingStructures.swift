@@ -55,13 +55,15 @@ struct DelimiterState: OptionSet {
 
         switch token {
 
-        case Codec.tilde, Codec.asterisk:
+        case Codec.tilde, Codec.asterisk, Codec.underscore:
             if isRightFlanking { state.formUnion(.closing) }
             if isLeftFlanking  { state.formUnion(.opening) }
 
+        /*
         case Codec.underscore:
             if isRightFlanking && (!isLeftFlanking  || prev == .punctuation) { state.formUnion(.closing) }
             if isLeftFlanking  && (!isRightFlanking || next == .punctuation) { state.formUnion(.opening) }
+        */
 
         default:
             fatalError()

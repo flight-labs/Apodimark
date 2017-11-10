@@ -1,1 +1,1 @@
-Document { Paragraph(пристаням__стремятся__), }
+Document { Paragraph(пристанямi2(стремятся)), }

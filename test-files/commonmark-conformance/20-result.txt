@@ -1,1 +1,1 @@
-Document { Paragraph(_ _ _ _ a), Paragraph(a------), Paragraph(---a---), }
+Document { Paragraph(i1( ) i1( ) a), Paragraph(a------), Paragraph(---a---), }
