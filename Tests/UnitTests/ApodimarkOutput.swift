@@ -63,7 +63,15 @@ extension MarkdownBlock where
             return Codec.string(fromTokens: source[t.span])
 
         case .emphasis(let e):
-            return "e\(e.level)(" + e.content.reduce("", combineNodeOutput(source: source, codec: Codec.self)) + ")"
+            let typeChar: String;
+            switch e.type {
+            case .strikethrough: typeChar = "s"
+            case .italic: typeChar = "i"
+            case .bold: typeChar = "b"
+            case .underline: typeChar = "u"
+            }
+
+            return "\(typeChar)\(e.level)(" + e.content.reduce("", combineNodeOutput(source: source, codec: Codec.self)) + ")"
 
         case .monospacedText(let m):
             return "code(" + m.content.reduce("") { (acc, cur) in
