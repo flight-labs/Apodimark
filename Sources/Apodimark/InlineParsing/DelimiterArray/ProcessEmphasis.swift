@@ -29,14 +29,15 @@ extension MarkdownParser {
                     continue
                 }
                 if state.contains(.closing) {
-                    let fstDelIdx: Int = (kind == .underscore ? openingEmph.underscore! :
-                            kind == .asterisk ? openingEmph.asterisk! : openingEmph.tilde!)
+                    let fstDelIdx: Int? = (kind == .underscore ? openingEmph.underscore :
+                            kind == .asterisk ? openingEmph.asterisk : openingEmph.tilde)
 
-                    return (firstOpeningEmph!, fstDelIdx, i, kind)
+                    if fstDelIdx != nil { return (firstOpeningEmph!, fstDelIdx!, i, kind) }
                 }
                 if state.contains(.opening) {
                     if firstOpeningEmph == nil { firstOpeningEmph = i }
                     if kind == .underscore { openingEmph.underscore = i }
+                    else if kind == .tilde { openingEmph.tilde = i }
                     else { openingEmph.asterisk = i }
                 }
             }

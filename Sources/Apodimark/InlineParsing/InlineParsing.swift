@@ -67,14 +67,15 @@ extension MarkdownParser {
                 
                 switch token {
                     
-                case Codec.underscore, Codec.asterisk:
+                case Codec.underscore, Codec.asterisk, Codec.tilde:
                     let idxBeforeRun = view.index(before: scanner.startIndex)
                     scanner.popWhile(token)
                     let nextTokenKind = scanner.peek().flatMap(MarkdownParser.tokenKind) ?? .whitespace
                     
                     let delimiterState = DelimiterState(token: token, prev: prevTokenKind, next: nextTokenKind, codec: Codec.self)
                     let lvl = view.distance(from: idxBeforeRun, to: scanner.startIndex)
-                    let kind: EmphasisKind = token == Codec.underscore ? .underscore : .asterisk
+                    let kind: EmphasisKind = token == Codec.underscore ?
+                            .underscore : (token == Codec.asterisk ? .asterisk : .tilde)
                     delimiters.append((scanner.startIndex, .emph(kind, delimiterState, numericCast(lvl))))
                     
                 case Codec.backtick:

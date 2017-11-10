@@ -55,9 +55,7 @@ struct DelimiterState: OptionSet {
 
         switch token {
 
-        case Codec.asterisk:
-            fallthrough
-        case Codec.tilde:
+        case Codec.tilde, Codec.asterisk:
             if isRightFlanking { state.formUnion(.closing) }
             if isLeftFlanking  { state.formUnion(.opening) }
 

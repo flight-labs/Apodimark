@@ -572,7 +572,7 @@ extension MarkdownParser {
             return Line(.empty, indent, indexAfterIndent ..< scanner.startIndex)
 
 
-        case Codec.backtick, Codec.tilde:
+        case Codec.backtick:
             return parseFence(&scanner, indent: indent)
 
 
