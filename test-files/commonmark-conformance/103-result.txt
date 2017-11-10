@@ -1,2 +1,1 @@
-Document { Fence[][aaa
-~~~ ~~], }
+Document { Paragraph(~s2(s3(aaa) )), }

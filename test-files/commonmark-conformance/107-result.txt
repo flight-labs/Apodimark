@@ -1,3 +1,1 @@
-Document { Fence[ruby startline=3 $%@#$][def foo(x)
-  return 3
-end], }
+Document { Paragraph(s4(    ruby startline=3 $%@#$def foo(x)return 3end)~~~), }

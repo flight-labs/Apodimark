@@ -1,1 +1,1 @@
-Document { Fence[][\[\]], }
+Document { Paragraph(s3([])), }
