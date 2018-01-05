@@ -37,19 +37,27 @@ extension MarkdownParser {
             preconditionFailure()
         }
 
-        var value: Int
-
+        var value: Int = 0
+        var bulletKind: ListKind?
         switch firstToken {
-        case Codec.hyphen     : return .bullet(.hyphen)
-        case Codec.asterisk   : return .bullet(.star)
-        case Codec.plus       : return .bullet(.plus)
+        case Codec.hyphen     : bulletKind = .bullet(.hyphen)
+        case Codec.asterisk   : bulletKind = .bullet(.star)
+        case Codec.plus       : bulletKind = .bullet(.plus)
         case Codec.zero...Codec.nine: value = Codec.digit(representedByToken: firstToken)
         case _          : preconditionFailure()
         }
 
+        // *
+        // |_<---
+        if let bullet = bulletKind {
+          guard let token = scanner.peek(), token == Codec.space else {
+            throw ListParsingError.notAListMarker // An asterisk requires a space after it
+          }
+          return bullet
+        }
+
         // 1234)
         // |_<---
-
         var length = 1
         try scanner.popWhile { token in
 
@@ -77,6 +85,11 @@ extension MarkdownParser {
 
         // will not crash because popWhile threw an error if lastToken is not fullstop or rightparen
         let lastToken = scanner.pop()!
+
+        guard let token = scanner.peek(), token == Codec.space else {
+         throw ListParsingError.notAListMarker // An number with dot/parenthesis requires a space after it
+        }
+
         switch lastToken {
         case Codec.fullstop  : return .number(.dot, value)
         case Codec.rightparen: return .number(.parenthesis, value)
