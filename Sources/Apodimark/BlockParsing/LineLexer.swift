@@ -544,7 +544,7 @@ extension MarkdownParser {
         //      |_<--- (after indent)
 
         guard case let firstToken? = scanner.peek() else {
-            return Line(.empty, Indent(), scanner.indices)
+            return Line(.text, indent, scanner.indices)
         }
 
         switch firstToken {
