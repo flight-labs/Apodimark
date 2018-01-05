@@ -259,14 +259,6 @@ extension MarkdownParser {
             blockTree.buffer.append(.init(data: block, end: previousEnd))
         }
         
-        guard line.indent.level < TAB_INDENT else {
-            var newLine = line
-            newLine.indent.level -= TAB_INDENT
-            restoreIndentInLine(&newLine)
-            append(.code(.init(text: [newLine.indices], trailingEmptyLines: [])))
-            return
-        }
-        
         switch line.kind {
         case .quote(let rest):
             append(.quote(.init(firstMarker: line.indices.lowerBound)))
