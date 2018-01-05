@@ -1,1 +1,1 @@
-Document { Paragraph(*foo bar), List[Bullet] { Item { }, }, }
+Document { Paragraph(b1(foo bar)), }
