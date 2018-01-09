@@ -212,7 +212,7 @@ extension MarkdownParser {
             try scanner.popWhile { token in
 
                 guard case let token? = token else {
-                    throw HeaderParsingError.emptyHeader(level)
+                    throw HeaderParsingError.notAHeader
                 }
 
                 switch token {
@@ -225,7 +225,7 @@ extension MarkdownParser {
                     return .stop
 
                 case Codec.linefeed:
-                    throw HeaderParsingError.emptyHeader(level)
+                    throw HeaderParsingError.notAHeader
 
                 default:
                     throw HeaderParsingError.notAHeader
