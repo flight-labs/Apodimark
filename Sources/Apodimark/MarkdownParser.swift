@@ -3,7 +3,7 @@
 //  Apodimark
 //
 
-let TAB_INDENT = 4
+let TAB_INDENT = 3
 
 /**
  A MarkdownParser holds the necessary data and type information to parse
