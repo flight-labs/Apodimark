@@ -147,7 +147,6 @@ extension MarkdownParser {
 /// State used for read the content of a Header line
 fileprivate enum HeaderTextReadingState { // e.g. for # Hello  World ####    \n
     case text         // # He|_
-    case textSpaces   // # Hello |_
     case hashes       // # Hello   World #|_
     case endSpaces    // # Hello   World #### |_
 }
@@ -158,20 +157,14 @@ extension MarkdownParser {
     /// - returns: the index pointing to the end of the text in the header
     fileprivate static func readHeaderText(_ scanner: inout Scanner<View>) -> View.Index {
 
-        var state = HeaderTextReadingState.textSpaces
+        var state = HeaderTextReadingState.text
         var end = scanner.startIndex
 
         while case let token? = scanner.pop(ifNot: Codec.linefeed) {
             switch state {
 
             case .text:
-                if token == Codec.space { state = .textSpaces }
-                else { end = scanner.startIndex }
-
-            case .textSpaces:
-                if token == Codec.space { break }
-                else if token == Codec.hash { state = .hashes }
-                else { (state, end) = (.text, scanner.startIndex) }
+                end = scanner.startIndex
 
             case .hashes:
                 if token == Codec.hash { state = .hashes }
