@@ -10,9 +10,7 @@ let TAB_INDENT = 3
  a collection representing some text.
 */
 final class MarkdownParser <View: BidirectionalCollection, Codec: MarkdownParserCodec, DefinitionStore: ReferenceDefinitionStore> where
-    View.Iterator.Element == Codec.CodeUnit,
-    View.SubSequence: BidirectionalCollection,
-    View.SubSequence.Iterator.Element == View.Iterator.Element
+    View.Iterator.Element == Codec.CodeUnit
 {
     let view: View
     var definitionStore: DefinitionStore
