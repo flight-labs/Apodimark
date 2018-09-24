@@ -51,7 +51,7 @@ struct NonTextInlineNode <View: BidirectionalCollection, RefDef: ReferenceDefini
             return title
         case .code(let l):
             return view.index(start, offsetBy: numericCast(l)) ..< view.index(end, offsetBy: numericCast(-l))
-        case let .emphasis(l, t):
+        case let .emphasis(l, _):
             return view.index(start, offsetBy: numericCast(l)) ..< view.index(end, offsetBy: numericCast(-l))
         case .escapingBackslash:
             return start ..< start

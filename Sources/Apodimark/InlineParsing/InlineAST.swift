@@ -15,7 +15,7 @@ extension MarkdownParser {
 
 extension Range {
     fileprivate func split(up: Bound, nextLow: Bound) -> (Range, Range?) {
-        return (lowerBound ..< min(up, upperBound), (nextLow < upperBound ? (nextLow ..< upperBound) : nil))
+        return (lowerBound ..< Swift.min(up, upperBound), (nextLow < upperBound ? (nextLow ..< upperBound) : nil))
     }
 }
 

@@ -189,9 +189,7 @@ public func parsedMarkdown <View, DefinitionStore, Codec> (source: View, definit
     View: BidirectionalCollection,
     DefinitionStore: ReferenceDefinitionStore,
     Codec: MarkdownParserCodec,
-    View.Iterator.Element == Codec.CodeUnit,
-    View.SubSequence: BidirectionalCollection,
-    View.SubSequence.Iterator.Element == View.Iterator.Element
+    View.Iterator.Element == Codec.CodeUnit
 {
     return MarkdownParser<View, Codec, DefinitionStore>(view: source, definitionStore: definitionStore).finalAST()
 }
@@ -203,7 +201,7 @@ extension MarkdownParser {
     fileprivate func finalAST() -> [MarkdownBlock<View, RefDef>] {
         parseBlocks()
         updateDefinitionStore()
-        return blockTree.makeBreadthFirstIterator().flatMap(makeFinalBlock)
+        return blockTree.makeBreadthFirstIterator().compactMap(makeFinalBlock)
     }
     
     /// Return a MarkdownBlock from an instance of the internal BlockNode type and its children
@@ -228,7 +226,7 @@ extension MarkdownParser {
         case let .quote(q):
             
             let block = QuoteBlock(
-                content: children?.flatMap(makeFinalBlock) ?? [],
+                content: children?.compactMap(makeFinalBlock) ?? [],
                 markers: q.markers
             )
             
@@ -242,7 +240,7 @@ extension MarkdownParser {
                 guard case .listItem(let i) = n else { return .init(marker: view.startIndex ..< view.startIndex, content: []) }
                 return ListItemBlock<View, RefDef>(
                     marker: i.markerSpan,
-                    content: c?.flatMap(makeFinalBlock) ?? []
+                    content: c?.compactMap(makeFinalBlock) ?? []
                 )
             } ?? []
             
