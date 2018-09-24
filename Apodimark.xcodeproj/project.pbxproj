@@ -21,7 +21,6 @@
 		CD1CD07F1DA6961300D3AEAF /* Apodimark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1CD0661DA6961300D3AEAF /* Apodimark.swift */; };
 		CD1CD0801DA6961300D3AEAF /* Apodimark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1CD0661DA6961300D3AEAF /* Apodimark.swift */; };
 		CD1CD0811DA6961300D3AEAF /* Apodimark.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1CD0661DA6961300D3AEAF /* Apodimark.swift */; };
-		CD1CD09F1DA6961300D3AEAF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD1CD0701DA6961300D3AEAF /* Info.plist */; };
 		CD1CD0A01DA6961300D3AEAF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD1CD0701DA6961300D3AEAF /* Info.plist */; };
 		CD1CD0A11DA6961300D3AEAF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD1CD0701DA6961300D3AEAF /* Info.plist */; };
 		CD1CD0C61DA6961300D3AEAF /* MarkdownParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1CD07C1DA6961300D3AEAF /* MarkdownParser.swift */; };
@@ -535,7 +534,7 @@
 					};
 					CD1CCFE21DA68D1700D3AEAF = {
 						CreatedOnToolsVersion = 8.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 1000;
 						ProvisioningStyle = Automatic;
 					};
 					CD1CD0111DA68DBD00D3AEAF = {
@@ -597,7 +596,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD1CD09F1DA6961300D3AEAF /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,6 +983,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = land.loic.Apodimark.iOS;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1006,6 +1005,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = land.loic.Apodimark.iOS;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
