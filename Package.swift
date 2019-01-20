@@ -12,7 +12,7 @@ let package = Package(
     .library(
       name: "Apodimark",
       targets: ["Apodimark"]
-    ),
+    )
   ],
   dependencies: [
     // Dependencies declare other packages that this package depends on.
@@ -25,7 +25,6 @@ let package = Package(
     .target(
       name: "Apodimark",
       dependencies: []
-    ),
+    )
   ]
 )
-
